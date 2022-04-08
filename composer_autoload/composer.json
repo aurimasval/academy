@@ -1,0 +1,12 @@
+{
+    "name": "aurimasv/composer",
+    "autoload": {
+        "psr-4": {
+            "Testing\\": "src/",
+            "Tests\\": "test/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "7.4.2"
+    }
+}
