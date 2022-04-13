@@ -1,0 +1,15 @@
+{
+    "name": "aurimasv/pdo",
+    "autoload": {
+        "psr-4": {
+            "Application\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Aurimas Valancius",
+            "email": "aurimas.valancius@eneba.com"
+        }
+    ],
+    "require": {}
+}
