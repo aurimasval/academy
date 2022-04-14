@@ -10,6 +10,9 @@ class Connection
     protected static ?PDO $instance = null;
 
     private function __construct() {
+
+        require_once "constants.php";
+
         try {
             $host = DB_HOST;
             $user = DB_USER;

@@ -11,5 +11,7 @@
             "email": "aurimas.valancius@eneba.com"
         }
     ],
-    "require": {}
+    "require": {
+        "guzzlehttp/guzzle": "^7.4"
+    }
 }
