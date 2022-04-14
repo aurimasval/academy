@@ -48,6 +48,8 @@ if (isset($_GET['sort']) && $_GET['sort']) {
     }
 }
 
+$query .= " LIMIT 10 ";
+
 var_dump($query);
 
 $statement = $connection->prepare($query);
@@ -66,13 +68,29 @@ foreach ($products as &$product) {
     $product['count'] = $count ?: 0;
 }
 
-//
-// SQL INJECTION EXAMPLE
 //if (isset($_GET['name']) && $_GET['name']) {
 //
 //    $query = "DELETE FROM academy.product WHERE id = " . $_GET['name'];
 //
 //    $connection->exec($query);
+//}
+
+### INSERT DATA
+//
+
+//for ($i = 20005; $i < 30000; $i++) {
+//    $sql = "Insert into product(name, sku, description, price, quantity, status, deleted) VALUES(:name, :sku, :description, :price, :quantity, :status, :deleted)";
+//    $statement = $connection->prepare($sql);
+//    $statement->execute([
+//        'name' => 'test ' . $i,
+//        'sku' => $i,
+//        'description' => 'test ' . $i,
+//        'price' => $i,
+//        'quantity' => $i,
+//        'status' => 1,
+//        'deleted' => 0,
+//    ]);
+//    var_dump($i);
 //}
 
 include_once "views/products.php";

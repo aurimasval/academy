@@ -53,7 +53,7 @@
             <td><?= $product['name'] ?></td>
             <td><?= $product['price'] ?></td>
             <td style="text-align: right"><?= $product['status'] ?></td>
-            <td style="text-align: right"><?= $product['count'] ?></td>
+            <td style="text-align: right"><?= $product['count'] ?: 0  ?></td>
         </tr>
     <?php } ?>
     </tbody>
