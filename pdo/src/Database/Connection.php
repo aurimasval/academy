@@ -17,6 +17,7 @@ class Connection
             $password = DB_PASSWORD;
             $dsn = "mysql:host={$host};dbName={$dbName}";
             self::$instance = new PDO($dsn, $user, $password);
+            self::$instance->exec("Use {$dbName};");
         } catch (PDOException $e) {
             die("MySql Connection Error: " . $e->getMessage());
         }

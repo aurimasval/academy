@@ -19,7 +19,7 @@ $connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
 var_dump($_GET);
 
-$query = "SELECT * FROM academy.product WHERE 1=1 ";
+$query = "SELECT * FROM product WHERE 1=1 ";
 $arguments = [];
 
 if (isset($_GET['name']) && $_GET['name']) {
@@ -59,7 +59,7 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($products as &$product) {
     $productId = $product['id'];
-    $query = "Select SUM(quantity) from academy.order_product op WHERE product_id = :productId";
+    $query = "Select SUM(quantity) from order_product op WHERE product_id = :productId";
     $statement = $connection->prepare($query);
     $statement->execute(['productId' => $productId]);
     $count = $statement->fetchColumn();
@@ -74,7 +74,5 @@ foreach ($products as &$product) {
 //
 //    $connection->exec($query);
 //}
-
-
 
 include_once "views/products.php";
