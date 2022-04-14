@@ -17,6 +17,16 @@
  
 9. Pridėti list puslapiavimą
 
-10. Naudojant guzzle su composer pridėti nuotrauką random iš https://docs.thecatapi.com/
-arba jeigu nepatiks galima tiesiog paprastai prisidėt nuotrauką:
+10. Sukurti formą produkto pridėjimui:
+    
+    - name
+    - description
+    - price
+    - quantity
+    - sku
+    
+11. Sukurti mygtuką, kuris pašalins elementą iš sąrašo.
+
+12. Naudojant guzzle su composer pridėti nuotrauką random iš https://docs.thecatapi.com/
+    arba jeigu nepatiks galima tiesiog paprastai prisidėt nuotrauką:
     https://picsum.photos/
