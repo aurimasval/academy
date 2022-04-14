@@ -10,10 +10,6 @@ require_once "vendor/autoload.php";
 //Create PDO instance
 $connection = \Application\Database\Connection::getInstance();
 
-//set default fetch mode
-$connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-$connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-
 // query method
 //$statement = $connection->query('SELECT * FROM academy.product WHERE LIMIT 10');
 
