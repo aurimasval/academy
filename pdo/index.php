@@ -1,20 +1,14 @@
 <?php
 
+require_once "constants.php";
+
 ini_set('display_errors', '1');
 error_reporting(E_ALL);
 
-//require_once "vendor/autoload.php";
-
-$host = 'localhost';
-$user = 'root';
-$dbName = 'academy';
-$password = '';
-
-//SET DSN
-$dsn = "mysql:host={$host};dbName={$dbName}";
+require_once "vendor/autoload.php";
 
 //Create PDO instance
-$connection = new PDO("mysql:host=localhost;dbName=academy", $user, $password);
+$connection = \Application\Database\Connection::getInstance();
 
 //set default fetch mode
 $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
@@ -71,5 +65,16 @@ foreach ($products as &$product) {
     $count = $statement->fetchColumn();
     $product['count'] = $count ?: 0;
 }
+
+//
+// SQL INJECTION EXAMPLE
+//if (isset($_GET['name']) && $_GET['name']) {
+//
+//    $query = "DELETE FROM academy.product WHERE id = " . $_GET['name'];
+//
+//    $connection->exec($query);
+//}
+
+
 
 include_once "views/products.php";
