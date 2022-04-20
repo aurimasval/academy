@@ -1,0 +1,35 @@
+version: '3.9'
+services:
+    mysql_old_5:
+        container_name: mysql_old_5
+        image: mysql:5.7.6
+        ports:
+            - 3306:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+        volumes:
+            - mysql-academy-data:/var/lib/mysql
+
+    php_admin:
+        container_name: php_admin
+        image: phpmyadmin
+        ports:
+            - 8080:80
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_USER: root
+            MYSQL_PASSWORD: root
+            PMA_HOST: mysql_old_5
+
+    web:
+        container_name: web
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        volumes:
+            - ./src/:/var/www/html
+        ports:
+            - 82:80
+
+volumes:
+    mysql-academy-data: {}
